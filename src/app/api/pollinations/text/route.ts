@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+export const runtime = "edge";
+
 const API_KEY = process.env.POLLINATIONS_API_KEY;
 const BASE_URL = "https://gen.pollinations.ai";
 

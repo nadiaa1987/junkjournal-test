@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
+export const runtime = "edge";
+
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_test_placeholder", {
     apiVersion: "2026-01-28.clover",
 });
@@ -17,7 +19,6 @@ export async function POST(req: Request) {
             payment_method_types: ["card"],
             mode: "payment",
             client_reference_id: userId,
-            // Pass the credits quantity in metadata to process it later
             metadata: {
                 credits: credits.toString(),
                 userId: userId,
@@ -30,12 +31,11 @@ export async function POST(req: Request) {
                             name: `${credits} AI Image Credits`,
                             description: `Generate ${credits} unique junk journal pages.`,
                         },
-                        unit_amount: Math.round(amount * 100), // in cents must be an integer
+                        unit_amount: Math.round(amount * 100),
                     },
                     quantity: 1,
                 },
             ],
-            // Adjust this depending on the deployment environment
             success_url: `${req.headers.get("origin")}/?success=true&session_id={CHECKOUT_SESSION_ID}`,
             cancel_url: `${req.headers.get("origin")}/?canceled=true`,
         });
