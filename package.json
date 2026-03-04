@@ -15,21 +15,21 @@
     "firebase": "^12.9.0",
     "jspdf": "^4.2.0",
     "jszip": "^3.10.1",
-    "next": "^15.4.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "next": "15.4.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "stripe": "^20.3.1"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.16",
+    "@cloudflare/next-on-pages": "1.13.16",
     "@types/file-saver": "^2.0.7",
     "@types/jszip": "^3.4.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "^15.4.1",
+    "eslint-config-next": "15.4.1",
     "typescript": "^5",
-    "vercel": "^47.0.4"
+    "vercel": "47.0.4"
   }
 }
